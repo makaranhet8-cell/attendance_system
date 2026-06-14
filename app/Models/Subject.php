@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+class Subject extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'subject_name',
+        'description',
+    ];
+
+    /**
+     * Schedules for this subject.
+     */
+    public function schedules()
+    {
+        return $this->hasMany(Schedule::class);
+    }
+}
