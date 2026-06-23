@@ -11,14 +11,12 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        // ទាញយកចំនួនពី Database
         $classRoomCount = ClassRoom::count();
         $studentCount = Student::count();
         $teacherCount = Teacher::count();
         $pendingLeaveCount = LeaveRequest::where('status', 'Pending')->count();
 
-        // បញ្ជូនទិន្នន័យទៅកាន់ view('dashboard')
-        return view('dashboard', compact(
+        return view('admin.dashboard', compact(
             'classRoomCount',
             'studentCount',
             'teacherCount',

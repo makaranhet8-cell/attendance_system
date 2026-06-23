@@ -14,6 +14,7 @@ class StudentController extends Controller
      */
     public function index()
     {
+        
         $students = Student::with(['user', 'classRoom'])->get();
 
         return view('students.index', compact('students'));
